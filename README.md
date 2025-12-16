@@ -1,9 +1,5 @@
 # Patient-Treatment-in-Emergency-Department
 
-# 🏥 Emergency Room Process Mining & Optimization
-
-> *A Data-Aware analysis of patient flows, bottlenecks, and resource allocation in a hospital Emergency Department.*
-
 ## 📋 Overview
 
 This project performs an advanced **Process Mining analysis** on a real-world dataset comprising **25,115 clinical records** from an Emergency Department (ED). By leveraging the **PM4Py** framework, the analysis transforms raw, noisy hospital logs into actionable strategic insights.
@@ -61,13 +57,20 @@ python emergency_department_analysis.py
 ## 📊 Visualizations
 
 The script generates several critical plots to visualize the process "health":
-
-| Visualization | Description |
-| :--- | :--- |
-| **Pareto Chart** | Shows the "Long Tail" of variants (880 variants for 1801 cases). |
-| **DFG (Bow-Tie)** | Visualizes the chaotic "ping-pong" flow between Vital Signs and Medication. |
-| **WIP Evolution** | Compares Real vs. Theoretical WIP to prove system instability. |
-| **Violin Plots** | Comparison of Lead Times across the Top-10 variants. |
+| Category | Chart Type | Analytical Purpose |
+| :--- | :--- | :--- |
+| **Process Models** | **DFG (Bow-Tie)** | Visualizes the chaotic flow and self-loops between Vital Signs and Medication. |
+| | **Petri Nets** | Sound models (Inductive Miner) vs. Main Flow models (Heuristic Miner). |
+| **Temporal Analysis** | **Histogram + KDE** | Analysis of Length of Stay (LoS) distribution (Skewness). |
+| | **Boxplots** | Lead Time stratification by **Acuity Level** (Critical vs Routine). |
+| **Bottlenecks** | **Boxplots** | Waiting times distribution for each specific activity. |
+| | **Bar Chart** | **Arrival Rate** by hour (Seasonality & Intake Peaks). |
+| **Stability** | **Line Chart** | **Real vs. Theoretical WIP** evolution (Little's Law verification). |
+| | **Histogram + KDE** | **Inter-Arrival Times (IAT)** to detect Burstiness patterns. |
+| **Variants** | **Pareto Chart (Line)** | Cumulative coverage of variants (The "Long Tail" problem). |
+| | **Violin Plots** | Detailed performance comparison of the Top-10 variants. |
+| **Optimization** | **Bar Chart** | Patient distribution by **Data-Aware Patterns** (Vectors). |
+| | **Line Chart** | Fitness/Precision/F1 Score trade-off to select optimal `K`. |
 
 ## 🧪 Methodological Highlights
 
